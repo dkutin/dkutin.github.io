@@ -1,16 +1,29 @@
-import Home from './pages/Home.mdx';
-import './App.css'
+import Nav from '@components/Nav';
+import Blog from '@pages/Blog';
+import Home from '@pages/Home.mdx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import './App.css';
+
+// MDX components to be shared across all MDX files
+const components = {
+  em(properties: any) {
+    return <i {...properties} />;
+  },
+};
 
 const App = () => {
-  const components = {
-    em(properties: any) {
-      return <i {...properties} />
-    }
-  }
-
   return (
-    <Home components={components} />
-  )
-}
+    <BrowserRouter>
+      <Nav />
+      <main style={{ padding: '0 2rem' }}>
+        <Routes>
+          <Route path='/' element={<Home components={components} />} />
+          <Route path='/blog/:slug' element={<Blog components={components} />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
