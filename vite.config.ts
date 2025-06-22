@@ -10,7 +10,7 @@ export default defineConfig({
         /* jsxImportSource: …, otherOptions… */
       }),
     },
-    react({ include: /\.(jsx|js|mdx|md|tsx|ts)$/ }),
+    react({ include: /\.(mdx|tsx|ts)$/ }),
   ],
   resolve: {
     alias: {
