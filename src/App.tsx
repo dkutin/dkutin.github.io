@@ -3,8 +3,6 @@ import Blog from '@pages/Blog';
 import Home from '@pages/Home.mdx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import './App.css';
-
 // MDX components to be shared across all MDX files
 const components = {
   em(properties: any) {
