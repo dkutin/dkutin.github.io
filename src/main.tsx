@@ -1,16 +1,16 @@
 import { StrictMode } from 'react';
 
-import { HeroUIProvider } from '@heroui/system';
 import { createRoot } from 'react-dom/client';
 
 import App from '@/App.tsx';
 
-// import './main.css';
+import './main.css';
+import Providers from './providers';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HeroUIProvider>
+    <Providers>
       <App />
-    </HeroUIProvider>
+    </Providers>
   </StrictMode>,
 );

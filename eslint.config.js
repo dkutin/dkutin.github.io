@@ -45,7 +45,7 @@ export default tseslint.config(
       parser: tseslint.parser,
       parserOptions: {
         project: './tsconfig.node.json',
-      },
+      }
     },
     plugins: {
       '@typescript-eslint': tseslint.plugin,

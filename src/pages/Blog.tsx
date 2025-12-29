@@ -1,14 +1,24 @@
-import { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 
+import { Link, Spinner } from '@heroui/react';
 import { useParams } from 'react-router-dom';
 
-const Blog = ({ ...props }) => {
+import posts from '@/blog';
+
+const Blog: React.FC = ({ ...props }) => {
   const { slug } = useParams<{ slug: string }>();
-  const PostContent = lazy(() => import(`/src/blog/${slug}.mdx`));
+  const PostContent =
+    posts.find((post) => post.slug === slug)?.component ||
+    lazy(() => import('@/pages/NotFound.mdx'));
 
   return (
-    <Suspense fallback={<div>Loading post...</div>}>
-      <PostContent {...props} />
+    <Suspense fallback={<Spinner size={'lg'} />}>
+      <Link href={'/'} className='text-blue-500 hover:underline mb-4 inline-block'>
+        &larr; Back to Home
+      </Link>
+      <article className='prose max-w-4xl pb-20'>
+        <PostContent {...props} />
+      </article>
     </Suspense>
   );
 };

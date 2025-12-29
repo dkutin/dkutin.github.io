@@ -3,11 +3,12 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: '/#/',
   plugins: [
     {
       enforce: 'pre',
       ...mdx({
-        /* jsxImportSource: …, otherOptions… */
+        providerImportSource: '@mdx-js/react',
       }),
     },
     react({ include: /\.(mdx|tsx|ts)$/ }),

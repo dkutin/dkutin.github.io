@@ -1,31 +1,19 @@
-import Nav from '@components/Nav';
-import Blog from '@pages/Blog';
-import Home from '@pages/Home.mdx';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Nav from '@/components/layout/Navbar';
 
-// MDX components to be shared across all MDX files
-const components = {
-  h1(properties: any) {
-    return <h1 className='text-5xl' {...properties} />;
-  },
-  em(properties: any) {
-    return <i {...properties} />;
-  },
-};
+import Routes from './routes';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <main className='light text-foreground bg-background'>
-        <Nav />
-        <section className='container px-12 pt-8'>
-          <Routes>
-            <Route path='/' element={<Home components={components} />} />
-            <Route path='/blog/:slug' element={<Blog components={components} />} />
-          </Routes>
+    <>
+      <Nav />
+      <main className='flex w-full h-auto items-center justify-center'>
+        <section className='flex mt-6 px-6 gap-4 w-full flex-row relative flex-nowrap items-center justify-between max-w-[1280px]'>
+          <div>
+            <Routes />
+          </div>
         </section>
       </main>
-    </BrowserRouter>
+    </>
   );
 };
 
