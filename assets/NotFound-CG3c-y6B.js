@@ -1,0 +1,2 @@
+import{I as r,J as n}from"./index-YbdJMoBB.js";function o(e){const t={h1:"h1",p:"p",...r(),...e.components};return n.jsxs(n.Fragment,{children:[n.jsx(t.h1,{children:"Oops!"}),`
+`,n.jsx(t.p,{children:"We couldn't find the page you were looking for. It might have been moved or deleted."})]})}function c(e={}){const{wrapper:t}={...r(),...e.components};return t?n.jsx(t,{...e,children:n.jsx(o,{...e})}):o(e)}export{c as default};
